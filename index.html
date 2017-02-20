@@ -1,0 +1,41 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/html">
+    <head>
+        <link rel="icon" href="assets/custom/images/icon.png">
+        <title>PhD Application</title>
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="assets/css/site.css" />
+    </head>
+
+    <body ng-app="phdapp" class="root-div">
+        <div ui-view="navbar"></div>
+        <div ui-view="content"></div>
+        <!-- BOWER COMPONENTS -->
+        <!-------------------------------------------------------------------------------------------->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="bower_components/angular-messages/angular-messages.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+        <!-- ANGULAR APP -->
+        <!-------------------------------------------------------------------------------------------->
+        <script src="app/app.module.js"></script>
+        <script src="app/app.state.js"></script>
+        <script src="admin/admin.controller.js"></script>
+        <script src="admin/deployments/deployments.controller.js"></script>
+        <script src="admin/processes/processes.controller.js"></script>
+        <script src="home/home.controller.js"></script>
+        <script src="login/login.controller.js"></script>
+        <script src="navbar/navbar.controller.js"></script>
+        <script src="services/group.service.js"></script>
+        <script src="services/task.service.js"></script>
+        <script src="services/user.service.js"></script>
+        <script src="tasks/archived/archived-tasks.controller.js"></script>
+        <script src="tasks/group/group-tasks.controller.js"></script>
+        <script src="tasks/user/user-tasks.controller.js"></script>
+        <!-------------------------------------------------------------------------------------------->
+    </body>
+</html>

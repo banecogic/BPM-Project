@@ -1,0 +1,27 @@
+<div class="container">
+    <form name="loginForm">
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-addon input-field" id="username-desc">Username</span>
+                <input type="text" required min="3" class="form-control"
+                       id="username" name="username" aria-describedby="username-desc" ng-model="username">
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <div class="input-group">
+                <span class="input-group-addon input-field" id="password-desc">Password</span>
+                <input type="password" required min="4" class="form-control"
+                       id="password" name="password" aria-describedby="password-desc" ng-model="password">
+            </div>
+        </div>
+
+        <br />
+
+        <div class="row">
+            <button class="btn btn-info" ng-click="login()">Prijava</button>
+        </div>
+    </form>
+</div>

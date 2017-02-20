@@ -1,0 +1,23 @@
+{
+  "name": "phdapp",
+  "authors": [
+    "Branislav Čogić"
+  ],
+  "description": "Project for Business Process Management course of Computing and Control Engineering master studies program at Faculty of Technical Sciences, University of Novi Sad, Serbia.",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.5.10",
+    "angular-messages": "1.4.8",
+    "angular-bootstrap": "1.3.3",
+    "angular-ui-router": "0.2.15",
+    "bootstrap": "3.3.6"
+  },
+  "resolutions": {
+    "angular": "~1.5.x"
+  }
+}

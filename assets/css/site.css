@@ -1,0 +1,9 @@
+.root-div {
+    text-align: left;
+    min-width:800px;
+    width: 75%;
+    margin: 0 auto;
+}
+.pointer {
+	cursor: pointer;
+}
