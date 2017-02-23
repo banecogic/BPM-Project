@@ -19,7 +19,7 @@
 		}
 		console.log('Groups = ' + groupsCommaSeparated);
 
-		Task.getTaskForCandidateGroups(groupsCommaSeparated).then(function(response) {
+		Task.getTasksForCandidateGroups(groupsCommaSeparated).then(function(response) {
 				console.log('Successfully fetched tasks where candidate groups are one that user ' + $rootScope.currentUser.id + ' is in.');
 				console.log('response data is : ');
 				console.log(response.data);

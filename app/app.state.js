@@ -100,6 +100,21 @@
                         controller: 'UserTasksController'
                     }
                 }
+            })
+            .state('task', {
+                parent: 'tasks',
+                url: '/task/{id}',
+                views: {
+                    'content@':{
+                        templateUrl: 'tasks/task.html',
+                        controller: 'TaskController'
+                    }
+                },
+                resolve: {
+                    task: ['$stateParams', 'Task', function($stateParams, Task) {
+                        return Task.getTaskById($stateParams.id);
+                    }]
+                }
             });
     }
 })();
