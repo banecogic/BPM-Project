@@ -20,11 +20,18 @@
 		console.log('Groups = ' + groupsCommaSeparated);
 
 		Task.getTasksForCandidateGroups(groupsCommaSeparated).then(function(response) {
-				console.log('Successfully fetched tasks where candidate groups are one that user ' + $rootScope.currentUser.id + ' is in.');
-				console.log('response data is : ');
-				console.log(response.data);
-			}, function(response) {
-				console.log('Fetching tasks where candidate groups are one that user ' + $rootScope.currentUser.id + ' is in failed!');
-			})
+                console.log('Successfully fetched tasks where candidate groups are: ' + groupsCommaSeparated);
+                $scope.candidateTasks = response.data.data;
+                $scope.candidateTasks.forEach(function(task, index, arr){
+                    Process.getProcessDefinition(task.processDefinitionId).then(function(response) {
+                            console.log('Successfully fetched process definition of task ' + task.id);
+                            task.processDefinition = response.data;
+                        }, function(response) {
+                            console.log('Fetching process definition of task ' + $scope.assignedTasks[j].id + ' failed!');
+                        });
+                });
+            }, function(response) {
+                console.log('Fetching tasks where candidate groups are: ' + groupsCommaSeparated + ' failed!');
+            });
     }
 })();

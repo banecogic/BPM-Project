@@ -1,50 +1,47 @@
 <div class="container">
-    <p>These are user tasks!</p>
-    <p>These are assigned tasks !</p>
-    <div class="table-responsive" id="tasks-table">
-        <table class="table table-striped">
-            <tr>
-                <th class="col-md-2"><span>Assigneee</span></th>
-                <th class="col-md-5"><span>Task name</span></th>
-                <th class="col-md-5"><span>Process definition id</span></th>
-                <th class="col-md-2"><span></span></th>
-            </tr>
-            <tr ng-repeat="assignedTask in assignedTasks">
-                <td class="col-md-2">{{assignedTask.assignee}}</td>
-                <td class="col-md-4"><span>{{assignedTask.name}}</span></td>
-                <td class="col-md-4"><span>{{assignedTask.processDefinitionId}}</span></td>
-                <td class="col-md-2">
-                    <button type="submit"
-                            class="btn btn-info btn-sm"
-                            ui-sref="task({processId:assignedTask.id, taskId:assignedTask.id})">
-                        <span class="glyphicon glyphicon-info-sign"></span>&nbsp;<span> Vidi</span>
-                    </button>
-                </td>
-            </tr>
-        </table>
-    </div>
+    <h3 class="sub-header" style="text-align: center">These are assigned tasks ! Ovo su zadaci koji čekaju da ih izvrište.</h3>
+        <div class="table-responsive" id="tasks-table">
+            <table class="table table-striped">
+                <tr>
+                    <th class="col-md-2"><span>Izvrsilac</span></th>
+                    <th class="col-md-3"><span>Zadatak</span></th>
+                    <th class="col-md-3"><span>Proces</span></th>
+                    <th class="col-md-2"><span></span></th>
+                </tr>
+                <tr ng-repeat="assignedTask in assignedTasks">
+                    <td class="col-md-2">{{currentUser.firstName}} {{currentUser.lastName}}</td>
+                    <td class="col-md-3"><span>{{assignedTask.name}}</span></td>
+                    <td class="col-md-3"><span>{{assignedTask.processDefinition.name}}</span></td>
+                    <td class="col-md-2">
+                        <button type="submit"
+                                class="btn btn-info btn-sm"
+                                ui-sref="task({processId:assignedTask.id, taskId:assignedTask.id})">
+                            <span class="glyphicon glyphicon-info-sign"></span>&nbsp;<span> Vidi</span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
 
-    <p>These are candidate tasks!</p>
-    <div class="table-responsive" id="tasks-table">
-        <table class="table table-striped">
-            <tr>
-                <th class="col-md-2"><span>Assigneee</span></th>
-                <th class="col-md-4"><span>Task name</span></th>
-                <th class="col-md-4"><span>Process definition id</span></th>
-                <th class="col-md-2"><span></span></th>
-            </tr>
-            <tr ng-repeat="candidateTask in candidateTasks">
-                <td class="col-md-2">{{candidateTask.assignee}}</td>
-                <td class="col-md-4"><span>{{candidateTask.name}}</span></td>
-                <td class="col-md-4"><span>{{candidateTask.processDefinitionId}}</span></td>
-                <td class="col-md-2">
-                    <button type="submit"
-                            class="btn btn-info btn-sm"
-                            ui-sref="task({processId:candidateTask.id, taskId:candidateTask.id})">
-                        <span class="glyphicon glyphicon-info-sign"></span>&nbsp;<span> Vidi</span>
-                    </button>
-                </td>
-            </tr>
-        </table>
-    </div>
+        <h3 class="sub-header" style="text-align: center">These are candidate tasks! Ovo su zadaci koji čekaju na izvršenje i možete prihvatiti da ih izvršite</h3>
+            <div class="table-responsive" id="tasks-table">
+                <table class="table table-striped">
+                    <tr>
+                        <th class="col-md-3"><span>Zadatak</span></th>
+                        <th class="col-md-3"><span>Proces</span></th>
+                        <th class="col-md-2"><span></span></th>
+                    </tr>
+                    <tr ng-repeat="candidateTask in candidateTasks">
+                        <td class="col-md-3"><span>{{candidateTask.name}}</span></td>
+                        <td class="col-md-3"><span>{{candidateTask.processDefinition.name}}</span></td>
+                        <td class="col-md-2">
+                            <button type="submit"
+                                    class="btn btn-info btn-sm"
+                                    ng-click="claimTask(candidateTask)">
+                                <span class="glyphicon glyphicon-info-sign"></span>&nbsp;<span> Prihvati</span>
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
 </div>

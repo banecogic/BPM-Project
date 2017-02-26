@@ -1,8 +1,50 @@
-<div>
-    This is task !
-    task is: {{task}}
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <h2 class="sub-header">Informacije o zadatku:</h2>
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <tr>
+                        <td class="col-md-3">Naziv zadatka</td>
+                        <td class="col-md-3">{{task.name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-3">Izvršilac</td>
+                        <td class="col-md-3"><img url="{{currentUser.url}}"/>{{task.assignee.firstName}} {{task.assignee.lastName}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-3">U sklopu procesa</td>
+                        <td class="col-md-3">{{processDefinition.name}}</td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-3">Opis zadatka</td>
+                        <td class="col-md-3"><span ng-hide="task.description == null">{{task.description}}</span><span ng-show="task.description == null"><i>Nema opisa</i></span></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
 
-    <br/>
-    <br/>
-    process definition is: {{processDefinition}}
+        <div class="col-xs-6">
+            <h2 class="sub-header">Forma zadatka:</h2>
+            <form name="taskForm">
+                <div class="table-responsive">
+                    <table class="table table-striped">
+                        <tr>
+                            <th class="col-md-6" colspan="2">Form</th>
+                        </tr>
+                        <tr ng-repeat="formProperty in task.form.formProperties">
+                            <td class="col-md-3">{{formProperty.name}}</td>
+                            <td class="col-md-3">
+                                <input type="number" ng-if="formProperty.type=='long'" ng-model="formProperty.value"/>
+                                <input type="text" ng-if="formProperty.type=='string'" ng-model="formProperty.value"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <form>
+        </div>
+    </div>
+    <div class="row" style="text-align: center">
+        <button class="btn btn-success" ng-disabled="isCompleteDisabled()" ng-click="completeTask()">Izvrši zadatak</button>
+    </div>
 </div>

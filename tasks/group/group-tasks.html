@@ -1,3 +1,23 @@
-<div>
-    <p>These are group tasks!</p>
+<div class="container">
+    <h3 class="sub-header" style="text-align: center">Ovo su zadaci grupa kojima pripadate. Možete prihvatiti da ih izvršite</h3>
+        <div class="table-responsive" id="tasks-table">
+            <table class="table table-striped">
+                <tr>
+                    <th class="col-md-3"><span>Zadatak</span></th>
+                    <th class="col-md-3"><span>Proces</span></th>
+                    <th class="col-md-2"><span></span></th>
+                </tr>
+                <tr ng-repeat="candidateTask in candidateTasks">
+                    <td class="col-md-3"><span>{{candidateTask.name}}</span></td>
+                    <td class="col-md-3"><span>{{candidateTask.processDefinition.name}}</span></td>
+                    <td class="col-md-2">
+                        <button type="submit"
+                                class="btn btn-info btn-sm"
+                                ng-click="claimTask(candidateTask)">
+                            <span class="glyphicon glyphicon-info-sign"></span>&nbsp;<span> Prihvati</span>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
 </div>

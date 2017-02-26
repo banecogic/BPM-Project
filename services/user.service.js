@@ -9,12 +9,27 @@
 
     function User ($rootScope, $http) {
         var service = {
+            getUser: getUser,
             getRolesForUser: getRolesForUser,
             hasRole: hasRole,
             login: login
         }
 
         return service;
+
+        function getUser (userId) {
+            var url = 'http://' + $rootScope.currentUser.id + ':' + $rootScope.currentUser.password + '@localhost:8080/activiti-rest/service/identity/users?id=' + userId;
+
+            var req = {
+                method: 'GET',
+                url: url,
+                headers: {
+                    'Accept': 'application/json',
+                }
+            }
+
+            return $http(req);
+        }
 
         function hasRole (role) {
             var currentUser = $rootScope.currentUser;
